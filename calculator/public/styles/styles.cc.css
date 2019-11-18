@@ -1,0 +1,11 @@
+.swag {
+    display: flex;
+    flex-direction: row;
+    height: 50%;
+    /*padding: 26px;*/
+    background-color: #fff;
+    justify-content : center;
+    align-items: center;
+}
+
+

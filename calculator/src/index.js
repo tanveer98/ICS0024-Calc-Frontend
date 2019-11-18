@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import Submit from "./Submit";
+import DropDown from "./DropDown"
+
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
