@@ -30,17 +30,15 @@ function SplitButton(props)
         let calType = calcType_api[selectedIndex];
         let queryString = "http://13.48.59.179:8043/api/calculate?calculatorType=";
         queryString += calType;
-        queryString += "&";
-        let value = "values=";
 
-        for(let i = 0; i < calValues.length; i++) {
-            let v = calValues[i];
-            value += v.value.toString();
-            value += ",";
-        }
-        value = value.slice(0, -1);
-        console.log(value);
-        queryString += value;
+        let valueString = ""
+        calValues.forEach( (v) => {
+            let value = v.value.toString();
+            valueString += "&";
+            valueString += "values=";
+            valueString += value;
+        });
+        queryString += valueString;
         console.log(queryString);
 
         (async () => {
