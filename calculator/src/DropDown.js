@@ -10,19 +10,44 @@ import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import InputField from "./InputField";
+import Axios from "axios";
+
 export default SplitButton;
+
 const calcType_api = ["ALL", "TEAM_2", "TEAM_6", "TEAM_7", "TEAM_8"];
 const calcType_ui = ["All Teams", "Team 2", "Team 6", "Team 7", "Team 8"];
 
 
-function SplitButton()
+function SplitButton(props)
 {
     const [open, setOpen] = React.useState(false);
     const anchorRef = React.useRef(null);
     const [selectedIndex, setSelectedIndex] = React.useState(0);
 
     const buttonClickHandler = () => {
-        alert(`You clicked ${calcType_ui[selectedIndex]}`);
+        console.log(`You clicked ${calcType_ui[selectedIndex]}`);
+        let calValues = props.inArray.values;
+        let calType = calcType_api[selectedIndex];
+        let queryString = "http://13.48.59.179:8043/api/calculate?calculatorType=";
+        queryString += calType;
+        queryString += "&";
+        let value = "values=";
+
+        for(let i = 0; i < calValues.length; i++) {
+            let v = calValues[i];
+            value += v.value.toString();
+            value += ",";
+        }
+        value = value.slice(0, -1);
+        console.log(value);
+        queryString += value;
+        console.log(queryString);
+
+        (async () => {
+            const resp = await Axios.get(queryString);
+            console.log(resp);
+        })();
+
     };
 
     const handleMenuItemClick = (event, index) => {
