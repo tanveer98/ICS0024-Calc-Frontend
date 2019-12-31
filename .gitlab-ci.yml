@@ -8,6 +8,7 @@ before_script:
   - cd calculator
   - mkdir -p build
   - npm install
+  - shopt -s globstar
 
 build job:
   stage: build
@@ -15,7 +16,7 @@ build job:
     - runner
   artifacts:
     paths:
-      - build/
+      - build/**
   script:
     - pwd
     - npm run build
