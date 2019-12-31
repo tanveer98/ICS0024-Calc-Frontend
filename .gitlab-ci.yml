@@ -14,7 +14,7 @@ build job:
     - runner
   artifacts:
     paths:
-      - build
+      - build/
   script:
 
     - npm run build
