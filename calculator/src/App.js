@@ -1,24 +1,14 @@
 import React from 'react';
 import './App.css';
-import DropDown from "./DropDown";
-import InputField from "./InputField"
-
+import  {Page} from './scripts/Display-Components/Page'
+import { AppBar, Toolbar, Typography, Container } from "@material-ui/core";
 function App(props) {
-    let inputValues = {
-        values: [],
-        update(args) {
-            this.values = [...args];
-        }
-    };
 
-  return (
-    <div className="App">
-        <p> Select which team you want to select! (by default it will calculate for all teams!) </p>
-      <DropDown inArray = {inputValues}/>
-
-        <InputField outputArray={inputValues}/>
-    </div>
-  );
+    return (
+        <div className="App">
+            <Page/>
+        </div>
+    );
 }
 
 export default App;

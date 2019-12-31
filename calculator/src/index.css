@@ -5,7 +5,25 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color:#282c34;
+  height: 100vh;
 }
+
+.MuiContainer-root {
+  background-color: #3F51B5;
+  color: aliceblue;
+  height: 100vh;
+}
+
+ ul.options > li:before{
+   /*content: "• ";*/
+
+}
+ul.options > li {
+  display: inline;
+}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
