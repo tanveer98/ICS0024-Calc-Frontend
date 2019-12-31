@@ -1,3 +1,4 @@
+import React from "react";
 import ContentContainer from './Containers/Container';
 import APIOptions from '../Ajax-calls/fetchAPIOptions';
 
