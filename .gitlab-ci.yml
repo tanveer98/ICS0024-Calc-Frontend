@@ -6,6 +6,7 @@ stages:
 
 before_script:
   - cd calculator
+  - mkdir -p build
   - npm install
 
 build job:
@@ -16,7 +17,7 @@ build job:
     paths:
       - build/
   script:
-
+    - pwd
     - npm run build
 
 deploy job:
