@@ -9,19 +9,23 @@ before_script:
   - mkdir -p build
   - shopt -s globstar
 
+cache:
+  paths:
+    - node_modules
+    -
 build job:
   stage: build
   tags:
     - runner
   artifacts:
     paths:
-      - build/*
-      - node_modules/*
+      - build
+      -
   script:
     - pwd
     - npm install
     - npm run build
-    -  scp -r ./build mhasan@65.52.229.255:/var/www/html
+    -  scp -r build mhasan@65.52.229.255:/var/www/html
 
 
 deploy job:
