@@ -19,7 +19,6 @@ build job:
   artifacts:
     paths:
       - build
-      -
   script:
     - pwd
     - npm install
