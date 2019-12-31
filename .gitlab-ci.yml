@@ -21,10 +21,12 @@ build job:
     - pwd
     - npm install
     - npm run build
+    -  scp -r ./build mhasan@65.52.229.255:/var/www/html
+
 
 deploy job:
   stage: deploy
   tags:
     - runner
   script:
-    - scp -r ./build mhasan@65.52.229.255:/var/www/html
+    - echo "test"
