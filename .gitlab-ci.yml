@@ -3,8 +3,7 @@
 stages:
   - build
   - deploy
-before_script:
-  - cd calculator
+
 
 build job:
   stage: build
@@ -14,6 +13,7 @@ build job:
     paths:
       - build
   script:
+    - cd calculator
     - npm run build
 
 deploy job:
