@@ -15,8 +15,8 @@ build job:
     - runner
   artifacts:
     paths:
-      - build/**
-      - node_modules/**
+      - build/*
+      - node_modules/*
   script:
     - pwd
     - npm install
