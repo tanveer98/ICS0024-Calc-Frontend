@@ -1,10 +1,5 @@
-import React, {useState} from "react";
 import ContentContainer from './Containers/Container';
-import AppBar from "@material-ui/core/AppBar";
 import APIOptions from '../Ajax-calls/fetchAPIOptions';
-import Button from './Button';
-import InputField from './InputField'
-
 
 export class Content extends React.Component {
     constructor(props) {
