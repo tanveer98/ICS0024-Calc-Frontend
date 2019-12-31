@@ -1,0 +1,24 @@
+---
+#Front end runner, will only build and deploy
+stages:
+  - build
+  - deploy
+before_script:
+  - cd calculator
+
+build job:
+  stage: build
+  tags:
+    - runner
+  artifacts:
+    paths:
+      - build
+  script:
+    - npm run build
+
+deploy job:
+  stage: deploy
+  tags:
+    - runner
+  script:
+    - scp -r ./build mhasan@65.52.229.255:/var/www/html
