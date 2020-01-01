@@ -13,8 +13,6 @@ cache:
     - node_modules
 build job:
   stage: build
-  tags:
-    - front-end
   artifacts:
     paths:
       - build/dest
