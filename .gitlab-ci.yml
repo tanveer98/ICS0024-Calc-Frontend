@@ -12,6 +12,9 @@ install job:
   stage: install
   tags:
     - front-end
+  artifacts:
+    paths:
+      - node_modules
   script:
     - npm install
 
@@ -19,6 +22,9 @@ build job:
   stage: build
   tags:
     - front-end
+  artifacts:
+    paths:
+      - build
   script:
     - npm run build
 
