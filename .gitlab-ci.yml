@@ -25,17 +25,16 @@ build job:
   artifacts:
     paths:
       - build/
-  dependencies:
-    - install
-
   script:
     - npm run build
 
 deploy job:
   stage: deploy
+  artifacts:
+    paths:
+      - build/
+      - node_modules/
   tags:
     - front-end
-  dependencies:
-    - build
   script:
     - scp -r build mhasan@65.52.229.255:/var/www/html
