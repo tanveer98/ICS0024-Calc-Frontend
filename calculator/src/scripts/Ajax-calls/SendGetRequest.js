@@ -3,7 +3,7 @@ import Axios from "axios";
 export default sendGetRequest;
 async function sendGetRequest(state) {
     const user_input = state.user_input;
-    let queryString = "/c?";
+    let queryString = "http://localhost/api/c?";
     let valueString = "";
     user_input.forEach( (v) => {
         valueString += "v=";
