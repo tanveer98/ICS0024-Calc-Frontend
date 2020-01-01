@@ -15,7 +15,7 @@ export default function (props) {
     if(version === 0) {
         return (
             <Container maxWidth="lg">
-                <h1> Welcome!</h1>
+                <h1> Well!</h1>
             </Container>
         );
     }
@@ -26,7 +26,7 @@ export default function (props) {
             <Container maxWidth="lg">
                 <AppBar position="sticky">
                 </AppBar>
-                <h1> Welcome!</h1>
+                <h1> Well!</h1>
                 <p> There are {state.option_count} calculators available! These are: </p>
                 <Button options={state}/>
                 <InputField outputArray = {state}/>
@@ -41,7 +41,7 @@ export default function (props) {
             <Container maxWidth="lg">
                 <AppBar position="sticky">
                 </AppBar>
-                <h1> Welcome!</h1>
+                <h1> Well!</h1>
                 <p> There are {state.option_count} calculators available! These are: </p>
                 <Button options={state}/>
                 <InputField outputArray = {state}/>

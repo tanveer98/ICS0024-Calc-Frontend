@@ -1,0 +1,15 @@
+---
+#Front end runner, will only build and deploy
+stages:
+  - all
+
+build and deploy job:
+  stage: all
+  tags:
+    - front-end
+  script:
+    - cd calculator
+    - mkdir -p build
+    - npm install
+    - npm run build
+    - scp -r build mhasan@65.52.229.255:/var/www/html
