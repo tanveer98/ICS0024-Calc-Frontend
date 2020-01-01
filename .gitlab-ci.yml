@@ -14,8 +14,7 @@ install job:
     - front-end
   script:
     - npm install
-  artifacts:
-    when: always
+  cache:
     paths:
       - calculator/node_modules/
 
