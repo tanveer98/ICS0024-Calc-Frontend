@@ -3,13 +3,14 @@
 stages:
   - install
   - build
+before_script:
+  - cd calculator
 
 install job:
   stage: install
   tags:
     - front-end
   script:
-    - cd calculator
     - mkdir -p build
     - npm install
 
