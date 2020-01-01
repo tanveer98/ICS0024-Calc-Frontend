@@ -14,7 +14,7 @@ cache:
 build job:
   stage: build
   tags:
-    - runner
+    - front-end
   artifacts:
     paths:
       - build/dest
