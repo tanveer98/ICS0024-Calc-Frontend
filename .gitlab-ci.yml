@@ -4,10 +4,6 @@ stages:
   - build
   - deploy
 
-cache:
-  key: npm
-  paths:
-    - calculator/node_modules/
 
 before_script:
   - cd calculator
@@ -22,10 +18,6 @@ build job:
   artifacts:
     paths:
       - calculator/build/
-  cache:
-    key: npm
-
-
 
 deploy job:
   stage: deploy
