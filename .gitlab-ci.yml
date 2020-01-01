@@ -17,7 +17,7 @@ install job:
   artifacts:
     when: always
     paths:
-      - node_modules/*
+      - calculator/node_modules/
 
 build job:
   stage: build
@@ -27,7 +27,7 @@ build job:
     - npm run build
   artifacts:
     paths:
-      - build/
+      - calculator/build/
   dependencies:
     - install job
 
@@ -39,7 +39,7 @@ deploy job:
     - scp -r build mhasan@65.52.229.255:/var/www/html
   artifacts:
     paths:
-      - build/
-      - node_modules/
+      - calculator/build/
+      - calculator/node_modules/
   dependencies:
     - build job
