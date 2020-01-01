@@ -14,9 +14,10 @@ install job:
     - front-end
   script:
     - npm install
-  cache:
+  artifacts:
     paths:
       - calculator/node_modules/
+    when: on_failure
 
 build job:
   stage: build
