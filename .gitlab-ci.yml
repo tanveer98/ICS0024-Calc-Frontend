@@ -19,7 +19,7 @@ build job:
     - front-end
   artifacts:
     paths:
-      - build/dest
+      - build/index.html
     when: always
 
   script:
