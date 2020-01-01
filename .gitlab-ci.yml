@@ -14,7 +14,7 @@ install job:
     - front-end
   artifacts:
     paths:
-      - node_modules
+      - node_modules/
   script:
     - npm install
 
@@ -24,7 +24,10 @@ build job:
     - front-end
   artifacts:
     paths:
-      - build
+      - build/
+  dependencies:
+    - install
+
   script:
     - npm run build
 
@@ -32,5 +35,7 @@ deploy job:
   stage: deploy
   tags:
     - front-end
+  dependencies:
+    - build
   script:
     - scp -r build mhasan@65.52.229.255:/var/www/html
