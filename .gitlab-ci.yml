@@ -12,29 +12,34 @@ install job:
   stage: install
   tags:
     - front-end
-  artifacts:
-    paths:
-      - node_modules/
   script:
     - npm install
+  artifacts:
+    when: always
+    paths:
+      - node_modules/*
 
 build job:
   stage: build
   tags:
     - front-end
+  script:
+    - npm run build
   artifacts:
     paths:
       - build/
-  script:
-    - npm run build
+  dependencies:
+    - install job
 
 deploy job:
   stage: deploy
-  artifacts:
-    paths:
-      - build/
-      - node_modules/
   tags:
     - front-end
   script:
     - scp -r build mhasan@65.52.229.255:/var/www/html
+  artifacts:
+    paths:
+      - build/
+      - node_modules/
+  dependencies:
+    - build job
