@@ -8,11 +8,6 @@ before_script:
   - cd calculator
   - mkdir -p build
 
-cache:
-  paths:
-    - node_modules
-
-
 build job:
   stage: build
   tags:
@@ -25,7 +20,6 @@ build job:
   script:
     - npm install
     - npm run build
-    - scp -r build mhasan@65.52.229.255:/var/www/html
 
 deploy job:
   stage: deploy
@@ -33,3 +27,4 @@ deploy job:
     - runner
   script:
     - echo "test"
+    - scp -r build mhasan@65.52.229.255:/var/www/html
