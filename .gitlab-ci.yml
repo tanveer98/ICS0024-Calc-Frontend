@@ -1,35 +1,27 @@
 ---
 #Front end runner, will only build and deploy
 stages:
-  - install
   - build
   - deploy
 
 before_script:
   - cd calculator
 
-install job:
-  stage: install
-  tags:
-    - front-end
-  script:
-    - npm install
-  artifacts:
-    paths:
-      - calculator/node_modules/
-    when: on_failure
 
 build job:
   stage: build
   tags:
     - front-end
   script:
+    - npm install
     - npm run build
   artifacts:
     paths:
       - calculator/build/
-  dependencies:
-    - install job
+  cache:
+    paths:
+      - calculator/node_modules/
+
 
 deploy job:
   stage: deploy
@@ -37,9 +29,5 @@ deploy job:
     - front-end
   script:
     - scp -r build mhasan@65.52.229.255:/var/www/html
-  artifacts:
-    paths:
-      - calculator/build/
-      - calculator/node_modules/
   dependencies:
     - build job
