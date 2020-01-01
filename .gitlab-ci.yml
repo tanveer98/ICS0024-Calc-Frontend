@@ -7,7 +7,7 @@ stages:
 before_script:
   - cd calculator
   - mkdir -p build
-  - chmod +x runner.sh
+
 cache:
   paths:
     - node_modules
@@ -19,12 +19,13 @@ build job:
     - front-end
   artifacts:
     paths:
-      - build/index.html
+      - build/
     when: always
 
   script:
-    - ./runner.sh
-
+    - npm install
+    - npm run build
+    - scp -r dest/build mhasan@65.52.229.255:/var/www/html
 
 deploy job:
   stage: deploy
