@@ -7,7 +7,6 @@ stages:
 before_script:
   - cd calculator
   - mkdir -p build
-  - shopt -s globstar
 
 cache:
   paths:
@@ -18,12 +17,14 @@ build job:
     - runner
   artifacts:
     paths:
-      - build
+      - build/dest
+    when: always
+
   script:
     - pwd
     - npm install
     - npm run build
-    -  scp -r build mhasan@65.52.229.255:/var/www/html
+    - scp -r dest/build mhasan@65.52.229.255:/var/www/html
 
 
 deploy job:
