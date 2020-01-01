@@ -16,7 +16,7 @@ install job:
     - npm install
 
 build job:
-  stage: all
+  stage: build
   tags:
     - front-end
   script:
