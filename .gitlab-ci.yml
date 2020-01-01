@@ -1,30 +1,22 @@
 ---
 #Front end runner, will only build and deploy
 stages:
+  - install
   - build
-  - deploy
 
-before_script:
-  - cd calculator
-  - mkdir -p build
+install job:
+  stage: install
+  tags:
+    - front end
+  script:
+    - cd calculator
+    - mkdir -p build
+    - npm install
 
-build job:
+build and deploy job:
   stage: build
   tags:
     - front-end
-  artifacts:
-    paths:
-      - build/
-    when: always
-
   script:
-    - npm install
     - npm run build
     - scp -r build mhasan@65.52.229.255:/var/www/html
-
-deploy job:
-  stage: deploy
-  tags:
-    - runner
-  script:
-    - echo "test"
